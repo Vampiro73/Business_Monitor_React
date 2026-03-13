@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap');
+
+/* 1. Forzar el fondo en el HTML y el Body */
+html, body {
+    background-color: #000b14 !important; /* El color oscuro de tu diseño */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* 2. Asegurar que el contenedor principal de React también sea oscuro */
+#root {
+    background-color: #000b14 !important;
+    min-height: 100vh;
+}
+
+/* 3. Tu clase personalizada que envuelve todo el App.jsx */
+.theme-dark {
+    background-color: #000b14 !important;
+    min-height: 100vh;
+    width: 100%;
+}
+
+:root {
+    --bg-main: #000b14;
+    --bg-card: #002646;
+    --bg-card2: #002d54; /* Variable añadida para evitar error en card-custom-2 */
+    --bg-header: #002646;
+    --actinver-cyan: #00e5ff;
+    --actinver-aqua: #00ffcc;
+    --text-white: #ffffff;
+    --text-muted: #ffffff;
+    --hover-gray: #9D9D9D;
+}
+
+/* --- BASICS --- */
+body.theme-dark {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.main-header {
+    background-color: var(--bg-header);
+    min-height: 70px;
+    height: auto;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.btn-logout img {
+    filter: brightness(0) invert(1);
+    transition: 0.3s;
+}
+
+.btn-logout:hover img {
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 30px;
+}
+
+.divider-v {
+    width: 1px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+}
+
+.header-monitor-text {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.header-center {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn-custom {
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    padding: 3px 22px;
+    font-size: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn-custom:hover,
+.nav-btn-custom.active {
+    background-color: var(--actinver-cyan) !important;
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.user-session {
+    font-size: 0.65rem;
+    color: var(--actinver-cyan);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+/* --- CARDS --- */
+.card-custom {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-custom-2 {
+    background: var(--bg-card2);
+    border: 1px solid rgba(160, 209, 246, 0.1);
+    border-radius: 8px;
+    padding: 1.2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-reduced {
+    min-height: 255px !important;
+    height: 255px !important;
+}
+
+.card-title {
+    font-size: 0.85rem;
+    color: var(--actinver-cyan);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card-kpi {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card-kpi:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- TABLAS --- */
+.table-custom {
+    color: var(--actinver-aqua);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-custom thead {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table-custom-2 thead {
+    background: #ffffff;
+}
+
+/* --- CALENDARIO --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.cal-date {
+    padding: 4px;
+    color: #fff;
+}
+
+.cal-today {
+    background: var(--actinver-cyan);
+    color: #000;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 2px 5px; 
+}
+
+.btn-cal {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    flex: 1;
+    padding: 5px;
+    cursor: pointer; 
+}
+
+.btn-cal.active {
+    background: var(--actinver-cyan);
+    color: #000;
+    border-radius: 4px;
+    font-weight: 600; 
+}
+
+/* --- ASISTENTE IA --- */
+.asistente-container {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.asistente-header {
+    color: #333;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+}
+
+.asistente-input {
+    border: none;
+    width: 100%;
+    height: 50px;
+    font-size: 0.8rem;
+    resize: none;
+    outline: none;
+    color: #333;
+    box-sizing: border-box; /* Asegura que no desborde con el padding */
+}
+
+.btn-asistente-blue {
+    background: #0056b3;
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.btn-asistente-cyan {
+    background: var(--actinver-cyan);
+    border: none;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* --- COMPONENTES ESPECÍFICOS --- */
+.sucursal-scroll-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--actinver-cyan) transparent;
+}
+
+.sucursal-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sucursal-item.active {
+    background: #fff;
+    color: #000;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.suc-val {
+    color: var(--actinver-cyan);
+    font-weight: 700;
+}
+
+.sucursal-item.active .suc-val {
+    color: #0056b3;
+}
+
+.back-arrow {
+    text-decoration: none !important;
+    color: white !important;
+    font-size: 2rem;
+    line-height: 1;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.back-arrow:hover {
+    color: var(--actinver-cyan) !important;
+}
+
+.title-card-actinver {
+    color: var(--actinver-aqua);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* --- FUNNEL CORREGIDO --- */
+.funnel-container {
+    display: flex;
+    flex-wrap: wrap; /* <--- ESTO ES LO MÁS IMPORTANTE: permite que las tarjetas bajen */
+    gap: 10px;
+    justify-content: center; /* Centra las tarjetas si sobran espacios */
+}
+
+.funnel-step {
+    flex: 1 1 130px; /* <--- Permite que las tarjetas crezcan y se encojan (mínimo 130px) */
+    background: #002646;
+    border-top: 4px solid var(--actinver-cyan);
+    padding: 15px 5px;
+    text-align: center;
+    border-radius: 4px;
+    min-height: 80px; /* Un poquito más de espacio para que quepan bien los iconos */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease; /* Para que el cambio de color sea suave */
+}
+
+/* Para asegurar que en pantallas muy pequeñas el contenedor azul crezca */
+.card-custom-2 {
+    height: auto !important; 
+    min-height: 200px;
+    padding-bottom: 20px;
+}
+
+.funnel-step.completed {
+    background: #fff;
+    color: #000;
+    border-top: none;
+}
+
+.funnel-label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+    line-height: 1.1;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.funnel-step.completed .funnel-label {
+    color: #666;
+}
+
+.funnel-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* --- CONTAINERS DE GRÁFICAS --- */
+.chart-container-flex {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.chart-container-main {
+    position: relative;
+    height: 380px;
+    width: 100%;
+}
+
+.chart-container {
+    height: 400px;
+    width: 100%;
+    padding: 15px 0;
+}
+
+/* --- DETALLE CLIENTE INFO --- */
+.detalle-info-container {
+    margin-top: 2rem;
+    text-align: left;
+    padding: 0 2rem;
+}
+
+.detalle-item {
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+}
+
+/* --- NUEVAS CLASES PARA CRECIMIENTO TRANSVERSAL --- */
+.card-transversal {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 20px;
+    border-bottom: 4px solid var(--actinver-cyan);
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.card-transversal:hover {
+    transform: translateY(-5px);
+}
+
+.kpi-large {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--actinver-aqua);
+    margin: 10px 0;
+}
+
+.table-transversal {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.table-transversal th {
+    color: var(--actinver-cyan) !important;
+    border-bottom: 2px solid rgba(0, 229, 255, 0.2) !important;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.badge-status-onboarding {
+    background-color: rgba(0, 255, 204, 0.1);
+    color: var(--actinver-aqua);
+    border: 1px solid var(--actinver-aqua);
+    padding: 5px 10px;
+}
+
+/* --- ASISTENTE IA (DEPURADO) --- */
+.asistente-input {
+    width: 100% !important;
+    box-sizing: border-box !important; 
+    padding: 15px !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 8px;
+    border: none;
+    resize: none;
+    margin-top: 10px;
+    flex-grow: 1 !important;
+}
+
+/* Alineación de tarjetas */
+.row {
+    display: flex;
+    align-items: stretch;
+}
+
+.card-reduced {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- RESPONSIVE Y MENÚ (UNIFICADO) --- */
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* --- CIERRE DE AJUSTES PARA MÓVIL --- */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #001a33; /* Color sólido para mejor legibilidad */
+        border-radius: 12px;
+        margin-top: 10px;
+        border: 1px solid var(--actinver-cyan);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-btn-custom {
+        text-align: left;
+        padding: 12px 20px !important;
+        width: 100%;
+    }
+
+    .header-logo {
+        height: 18px !important;
+        width: auto !important;
+    }
+
+    .header-monitor-text, 
+    .divider-v {
+        display: none !important;
+    }
+
+    .user-name {
+        font-size: 0.7rem !important;
+        white-space: nowrap;
+    }
+} /* <--- ESTA ES LA LLAVE QUE FALTA Y CORRIGE EL ERROR DE VITE */
+
+/* --- CORRECCIÓN DE TEXTOS NEGROS --- */
+
+/* 1. Forzar color en todos los textos del header y nombres de usuario */
+.main-header, 
+.user-name, 
+.header-monitor-text,
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* 2. Arreglar el input del Asistente IA (que a veces se pone negro el texto) */
+.asistente-input {
+    color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+.asistente-input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 3. Títulos de las tarjetas (Cards) */
+.card-title {
+    color: var(--actinver-cyan) !important; /* O #ffffff según prefieras */
+    font-weight: 600 !important;
+}
+
+/* 4. Lista de sucursales y textos del calendario */
+.sucursal-item, 
+.calendar-day, 
+.funnel-label {
+    color: #ffffff !important;
+}
+
+/* 5. Si usas botones de Bootstrap, evitar que el texto se pierda */
+.btn-outline-info {
+    color: var(--actinver-cyan) !important;
+    border-color: var(--actinver-cyan) !important;
+}
+
+.btn-info {
+    color: #000000 !important; /* El texto del botón cyan sí debe ser negro para contraste */
+    background-color: var(--actinver-cyan) !important;
+}
+
+/* 6. Reset general para cualquier etiqueta que Bootstrap haya pintado de negro */
+.theme-dark span, 
+.theme-dark p, 
+.theme-dark div {
+    /* Solo aplica si no tienen un color definido ya */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- CORRECCIÓN TEXTOS SPINE FUNNEL --- */
+
+/* Forzar que las etiquetas (Captación, Activación, etc.) sean blancas */
+.funnel-label {
+    color: #ffffff !important;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+}
+
+/* Forzar que los números grandes sean blancos */
+.funnel-number {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Ajuste para los pasos que marcaste como 'completed' */
+/* Si el fondo se vuelve claro, el texto debe ser oscuro para que se vea */
+.funnel-step.completed .funnel-label,
+.funnel-step.completed .funnel-number {
+    color: #000b14 !important; /* Color oscuro para contrastar con el fondo claro del paso completado */
+}
+
+/* Si prefieres que sigan siendo blancos incluso en 'completed', usa esta: */
+/*
+.funnel-step.completed .funnel-label,
+.funnel-step.completed .funnel-number {
+    color: #ffffff !important;
+}
+*/
+
+/* --- LÍNEAS DE COLOR SUPERIOR EN SPINE FUNNEL --- */
+
+.funnel-step {
+    border-top: 4px solid #004cff; /* Azul por defecto para pasos iniciales */
+    transition: all 0.3s ease;
+}
+
+/* Color para los pasos intermedios (puedes ajustarlos a tu gusto) */
+.funnel-step:nth-child(2) { border-top-color: #00e5ff; } /* Activación */
+.funnel-step:nth-child(3) { border-top-color: #00e5ff; } /* Diagnóstico */
+.funnel-step:nth-child(4) { border-top-color: #00e5ff; } /* Propuesta */
+
+/* Color para los pasos completados (Cierre y Posventa) */
+.funnel-step.completed {
+    border-top: 4px solid var(--actinver-aqua) !important;
+    background: rgba(0, 255, 204, 0.05) !important;
+}
+
+/* Asegurar que el contenedor no tenga desbordes que oculten la línea */
+.funnel-container {
+    padding-top: 5px; 
+}
+
+/* --- SOLO CAMBIAR EL FONDO DE LAS TARJETAS COMPLETADAS --- */
+
+.funnel-step.completed {
+    background-color: #ffffff !important; /* Fondo blanco */
+    border-top: 4px solid #00e5ff !important; /* Borde superior Cyan para que combine */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para que resalte sobre el fondo oscuro del monitor */
+}
+
+/* No tocamos el color del texto porque ya mencionas que es negro, 
+   así que sobre el fondo blanco se verá impecable.
+*/
+
+/* --- ESTE ES EL QUE NO FALLA --- */
+textarea.asistente-input {
+    background-color: #ffffff !important; /* Blanco total */
+    color: #000000 !important;           /* Texto negro */
+    width: 100% !important;
+    min-height: 100px !important;        /* Para que no se vea corto */
+    border: 1px solid #ced4da !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    display: block !important;           /* Asegura que use todo el ancho */
+}
+
+/* Opcional: Para que el cursor y el texto que escribes sean negros */
+textarea.asistente-input:focus {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    outline: none !important;
+    border-color: #00e5ff !important;    /* Un pequeño brillo cyan al clickear */
+}
+
+/* --- COLOR PARA EL PLACEHOLDER --- */
+textarea.asistente-input::placeholder {
+    color: #666666 !important; /* Un gris oscuro para que resalte en el fondo blanco */
+    opacity: 1 !important;     /* Asegura que no tenga transparencia */
+}
+
+/* Para navegadores antiguos o específicos */
+textarea.asistente-input:-ms-input-placeholder {
+    color: #666666 !important;
+}
+
+textarea.asistente-input::-ms-input-placeholder {
+    color: #666666 !important;
+}
+
